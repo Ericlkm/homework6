@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header id="weather-title">
+    <h1>Weather Dashboard</h1>
+    </header>
+
+    <main>
+        <section id="search">
+            <h1 class="font-size">Search for a city!</h1>
+            <input id="search-input" type="text" placeholder="New York"><br>
+            <button type="submit" id="searchbtn">Search</button>
+        </section>
+        <div id="localstorage">
+            
+        </div>
+
+        <section id="current-weather">
+            <div id="c-div">
+                <h1 id="current-city" class="font-size"></h1>
+                <p id="current-temp"></p>
+                <p id="current-windspeed"></p>
+                <p id="current-humidity"></p>
+            </div>
+        </section>
+
+        <section id="weather-container">
+         <div class="weather-box hide" id="weather-1"></div>
+         <div class="weather-box hide" id="weather-2"></div>
+         <div class="weather-box hide" id="weather-3"></div>
+         <div class="weather-box hide" id="weather-4"></div>
+         <div class="weather-box hide" id="weather-5"></div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
