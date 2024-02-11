@@ -6,7 +6,7 @@
 }
 body{
     background-image: linear-gradient(to bottom,white,rgb(115, 112, 112));
-    height:100vh;
+    height:150vh;
 }
 
 #weather-title{
@@ -71,12 +71,13 @@ body{
     display: none;
 }
 #weather-container{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: right;
-    align-items: center;
-    margin-left:10rem;
+    align-items: right;
     margin-top:5rem;
+    overflow-y: auto;
 }
 .weather-box{
 width:14rem;
@@ -92,12 +93,15 @@ display: none;
 
 #localstorage{
     margin-left:10px;
-    width:15rem;
+    width:10rem;
+    display: list-item;
 }
 .storagebtn{
     width:10rem;
     padding:5px;
     font-size:17px;
+    margin:5px;
+    
 }
 #c-div h1,p{
     margin:10px;
@@ -114,7 +118,7 @@ display: none;
     display:block;
 }
 .hide{
-    display: none;
+    display: none;  
 }
 
 

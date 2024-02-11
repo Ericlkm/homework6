@@ -1,6 +1,8 @@
 let apiKey = "436e34371c64a3df27ce392964908c75";
 
 var cityName;
+var storage = document.getElementById("localstorage");
+
 
 
 
@@ -17,7 +19,9 @@ fetch(apiUrl2)
     data.list[0].main.temp = Math.round(data.list[0].main.temp - 273.15 +32)
     $("#current-temp").text(`temp: ${data.list[0].main.temp}°c`)
     $("#current-windspeed").text(`wind speed: ${ data.list[0].wind.speed}mph`)
-    $("#current-humidity").text(`Humidity: ${ data.list[0].main.humidity}%`)
+    $("#current-humidity").text(`Humidity: ${ data.list[0].main.humidity}%`)   
+    
+    // seachCities()
 
     let forecastDays =[];
     let fiveDforecast = data.list.filter(function(forecast){
@@ -32,7 +36,7 @@ fetch(apiUrl2)
     data.list[3].main.temp = Math.round(data.list[3].main.temp - 273.15 +32)
     data.list[4].main.temp = Math.round(data.list[4].main.temp - 273.15 +32)
 
-    $("#weather-1").append(`
+ $("#weather-1").append(`
         <h3>${fiveDforecast[0].dt_txt.slice(0,-8)}</h3><br>
         <h4>Temp: ${ data.list[1].main.temp}°c</h4><br>
         <h4>Humidity: ${ data.list[1].main.humidity}%</h4><br>
@@ -71,26 +75,25 @@ $("#weather-5").append(`
 
 $("#searchbtn").click(function(){
     reset()
-     localStorage.setItem("city", cityName);
-     storage=localStorage.getItem("city")
-
    cityName = $("#search-input").val();
    if(!cityName){return;}
    displayData()
+   seachCities()
    $(".weather-box").removeClass("hide").slideDown(1000)
+   $(".weather-box").addClass("show").slideDown(1000)
    $("#current-weather").addClass("show").slideDown(1000)
-   
-     
-
- localStorage.content = $("#localstorage").append(`<button class=storagebtn>${cityName}</button><br>`).addClass("show")
 })
-var storage = document.getElementById("localstorage");
-var storagebtn = document.getElementById("storagebtn")
+
 function reset(){
     $(".weather-box").empty()
 }
+function seachCities(){
+    localStorage.setItem("city", cityName);
+    storage=localStorage.getItem("city")
+    $("#localstorage").append(`<button id=btn class=storagebtn>${cityName}</button><br>`).addClass("show");
+}
 
 
- 
+
 
 
