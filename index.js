@@ -21,7 +21,6 @@ fetch(apiUrl2)
     $("#current-windspeed").text(`wind speed: ${ data.list[0].wind.speed}mph`)
     $("#current-humidity").text(`Humidity: ${ data.list[0].main.humidity}%`)   
     
-    // seachCities()
 
     let forecastDays =[];
     let fiveDforecast = data.list.filter(function(forecast){
@@ -82,15 +81,21 @@ $("#searchbtn").click(function(){
    $(".weather-box").removeClass("hide").slideDown(1000)
    $(".weather-box").addClass("show").slideDown(1000)
    $("#current-weather").addClass("show").slideDown(1000)
+   storage=localStorage.getItem("city")
+
 })
 
 function reset(){
     $(".weather-box").empty()
 }
+
 function seachCities(){
     localStorage.setItem("city", cityName);
     storage=localStorage.getItem("city")
-    $("#localstorage").append(`<button id=btn class=storagebtn>${cityName}</button><br>`).addClass("show");
+    $("#localstorage").each(function(){
+        var createbtn = $("<button><br>").addClass("storagebtn").text(cityName);
+        $("#localstorage").append(createbtn)
+    })
 }
 
 
