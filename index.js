@@ -7,7 +7,7 @@ var storage = document.getElementById("localstorage");
 
 
 function displayData(){
-let apiUrl2 = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
+let apiUrl2 = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
 fetch(apiUrl2)
 .then(function(res){
     return res.json()
